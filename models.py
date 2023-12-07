@@ -9,7 +9,7 @@ class MonsterSenses(Base):
 
 class MonsterHasSense(Base):
     __tablename__ = 'monsterHasSense'
-    monsterName = Column(String, ForeignKey("monsters.monsterName"), index=True)
+    monsterName = Column(String, ForeignKey("monsters.monsterName"),primary_key=True, index=True)
     senseName = Column(String, ForeignKey("sense.senseName"), index=True)
 
 class MonsterActions(Base):
@@ -31,12 +31,12 @@ class MonsterActions(Base):
 
 class MonsterSkills(Base):
     __tablename__ = 'monsterSkills'
-    monsterName = Column(String, ForeignKey("monsters.monsterName"), index=True)
+    monsterName = Column(String, ForeignKey("monsters.monsterName"),primary_key=True, index=True)
     monsterSkill = Column(String, ForeignKey("skill.skillName"), index=True)
     monsterBonus = Column(Integer, index=True)
 
 class Monsters(Base):
-    __tablename__ = 'race'
+    __tablename__ = 'monsters'
     monsterName = Column(String, primary_key=True, index=True)
     hitPoints = Column(Integer, index=True)
     profBonus = Column(Integer, index=True)
@@ -51,7 +51,7 @@ class Monsters(Base):
 
 class MonsterLang(Base):
     __tablename__ = 'monsterLang'
-    monsterName = Column(String, ForeignKey("monster.monsterName"), index=True)
+    monsterName = Column(String, ForeignKey("monster.monsterName"),primary_key=True, index=True)
     languageName = Column(String, ForeignKey("languages.languageName"), index=True)
 
 class Race(Base):
@@ -67,7 +67,7 @@ class Race(Base):
 
 class RaceLanguages(Base):
     __tablename__ = 'raceLanguages'
-    raceName = Column(String, ForeignKey("race.raceName"), index=True)
+    raceName = Column(String, ForeignKey("race.raceName"),primary_key=True, index=True)
     languageName = Column(String, ForeignKey("languages.languageName"), index=True)
 
 class Languages(Base):
@@ -80,7 +80,7 @@ class Languages(Base):
 
 class BackgroundLang(Base):
     __tablename__ = 'backgroundLang'
-    bgName = Column(String, ForeignKey("background.bgName"), index=True)
+    bgName = Column(String, ForeignKey("background.bgName"),primary_key=True, index=True)
     languageName = Column(String, ForeignKey("languages.languageName"), index=True)
 
 class Background(Base):
@@ -99,17 +99,17 @@ class Background(Base):
 
 class BackgroundSkill(Base):
     __tablename__ = 'backgroundSkill'
-    bgName = Column(String, ForeignKey("background.bgName"), index=True)
+    bgName = Column(String, ForeignKey("background.bgName"),primary_key=True, index=True)
     skillName = Column(String, ForeignKey("skill.skillName"), index=True)
 
 class Skills(Base):
     __tablename__ = 'skills'
     relatedAbility = Column(String, index=True)
-    skillName = Column(String, ForeignKey("skill.skillName"), index=True)
+    skillName = Column(String, ForeignKey("skill.skillName"),primary_key=True, index=True)
 
 class ClassSkills(Base):
     __tablename__ = 'classSkills'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     skillName = Column(String, ForeignKey("skill.skillName"), index=True)
 
 class Tools(Base):
@@ -129,12 +129,12 @@ class Tools(Base):
 
 class CanUseTool(Base):
     __tablename__ = 'canUseTool'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     toolName = Column(String, ForeignKey("tool.toolName"), index=True)
 
 class StartsTool(Base):
     __tablename__ = 'startsTool'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     toolName = Column(String, ForeignKey("tool.toolName"), index=True)
 
 class Weapons(Base):
@@ -158,12 +158,12 @@ class Weapons(Base):
 
 class StartsWeapon(Base):
     __tablename__ = 'startsWeapon'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     weaponName = Column(String, ForeignKey("weapon.weaponName"), index=True)
 
 class CanUseWeapon(Base):
     __tablename__ = 'canUseWeapon'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     weaponName = Column(String, ForeignKey("weapon.weaponName"), index=True)
 
 class Armor(Base):
@@ -181,12 +181,12 @@ class Armor(Base):
     
 class StartsArmor(Base):
     __tablename__ = 'startsArmor'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     armorName = Column(String, ForeignKey("armor.armorName"), index=True)
 
 class CanWear(Base):
     __tablename__ = 'canWear'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     armorName = Column(String, ForeignKey("armor.armorName"), index=True)
 
 class Class(Base):
@@ -205,7 +205,7 @@ class Class(Base):
 
 class ClassCanCast(Base):
     __tablename__ = 'classCanCast'
-    className = Column(String, ForeignKey("class.className"), index=True)
+    className = Column(String, ForeignKey("class.className"),primary_key=True, index=True)
     spellName = Column(String, ForeignKey("spells.spellName"), index=True)
 
 class Spells(Base):
