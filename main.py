@@ -28,5 +28,3 @@ def checkStatus():
 
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="https://cs2300.skrublaub.xyz/api", port=80)#not sure if this is directed to the correct point
