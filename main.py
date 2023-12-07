@@ -6,7 +6,7 @@ from database import engine, SessionLocal
 from sqlalchemy.orm import Session
 import uvicorn
 
-app = FastAPI()
+app = FastAPI(root_path="/api")
 models.Base.metadata.create_all(bind=engine)
 
 def getDB():
@@ -22,13 +22,11 @@ dbDependency = Annotated[Session, Depends(getDB)]
 
 
 
-@app.get("/{searchTerm}")
-def readSearch(searchTerm: str):
-    return {"message": "Hello World"}
+@app.get("/status")
+def checkStatus():
+    return {"message": "Hello World!!!"}
 
-@app.pos("/")
-def test():
-    return 0
+
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="https://cs2300.skrublaub.xyz/api", port=5432)#not sure if this is directed to the correct point
+    uvicorn.run(app, host="https://cs2300.skrublaub.xyz/api", port=80)#not sure if this is directed to the correct point
