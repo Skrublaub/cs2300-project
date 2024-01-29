@@ -1,0 +1,9 @@
+fastapi
+pydantic
+uvicorn
+redis
+types-redis
+sqlalchemy
+psycopg-binary
+python-multipart
+json2html

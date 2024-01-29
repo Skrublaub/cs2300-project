@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Database</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>D&D Search Engine</h1>
+    </header>
+	<main>
+		<form  id="search-form">
+			<label>Category:</label>
+			<select name="category" id="category" required>
+				<option value="">None</option>
+				<option value="monsters">Monsters</option>
+				<option value="spells">Spells</option>
+				<option value="skills">Skills</option>
+				<option value="weapons">Weapons</option>
+				<option value="armor">Armor</option>
+				<option value="class">Class</option>
+				<option value="tools">Tools</option>
+				<option value="background">Background</option>
+				<option value="monster_actions">Monster Actions</option>
+				<option value="languages">Languages</option>
+				<option value="race">Race</option>
+			</select>
+			<br>
+			<label for="user-input-subcategory">Subcategory:</label>
+			<input type="text" id="user-input-subcategory" name="user-input-subcategory" placeholder="Ex. Archer">
+			<br>
+			<input type="submit" value="Submit">
+		</form>
+	</main>
+	
+	<div id="display-html"></div>
+    <script src="script.js"></script>
+</body>
+</html>

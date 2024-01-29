@@ -1,0 +1,16 @@
+version: "3"
+services:
+  backend:
+    container_name: cs2300-backend-test
+    volumes:
+      - ./code:/code
+    build: .
+    ports:
+      - 8003:80
+    networks:
+      - default
+
+networks:
+  default:
+    name: cs2300net
+    external: true

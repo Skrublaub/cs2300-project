@@ -1,0 +1,52 @@
+{
+	"folders": {},
+	"connections": {
+		"postgresql-template-1": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "PostgreSQL",
+			"template": true,
+			"read-only": true,
+			"configuration": {
+				"host": "cs2300-db-1",
+				"port": "5432",
+				"database": "root",
+				"url": "jdbc:postgresql://cs2300-db-1:5432/root",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-18c193b3bdf-297867a491922d01": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "PostgreSQL@cs2300-db",
+			"configuration": {
+				"host": "cs2300-db",
+				"port": "5432",
+				"database": "root",
+				"url": "jdbc:postgresql://cs2300-db:5432/root",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": false,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800
+		}
+	}
+}

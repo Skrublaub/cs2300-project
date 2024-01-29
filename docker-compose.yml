@@ -1,0 +1,57 @@
+version: '3'
+services:
+  db:
+    container_name: cs2300-db
+    image: postgres:latest
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    ports:
+        - 5432:5432
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=root
+    networks:
+      db-net:
+        ipv4_address: 172.69.0.4
+      
+  cloudbeaver:
+    container_name: cs2300-cb
+    image: dbeaver/cloudbeaver:latest
+    ports:
+      - 8001:8978
+    volumes:
+      - ./cloudbeaver_data:/opt/cloudbeaver/workspace
+    networks:
+      db-net:
+        ipv4_address: 172.69.0.3
+
+  frontend:
+    container_name: cs2300-frontend
+    image: nginx
+    ports:
+      - 8002:80
+    volumes:
+      - /home/cs2300/frontend:/usr/share/nginx/html
+    networks:
+      - db-net 
+
+  #backend:
+  #  container_name: cs2300-backend
+  #  volumes:
+  #    - ./backend/code:/code
+  #  build:
+  #    context: backend
+  #  ports:
+  #    - 8003:80
+  #  networks:
+  #    - db-net
+
+networks:
+  db-net:
+    name: cs2300net
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.69.0.0/16
+          #ip_range: 172.69.10.0/24
+          gateway: 172.69.0.1
