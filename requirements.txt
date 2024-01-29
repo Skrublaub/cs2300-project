@@ -1,6 +1,0 @@
-fastapi
-redis
-types-redis
-uvicorn
-sqlalchemy
-psycopg2-binary
